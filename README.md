@@ -6,6 +6,7 @@
 ## Please go through below video for detailed information and subscribe this channel:- [Click here](
 https://www.youtube.com/channel/UCLTE4_DaxM3w2pqjIrnkO8A?sub_confirmation=1)
 
-[![How to get console logs]](
+
+[![How to execute selenium command via Postman](https://i.ytimg.com/vi/nihaRaacNoE/maxresdefault.jpg)](
 https://www.youtube.com/watch?v=nihaRaacNoE "AutomateWithChromeDriverAndPostman")
 
