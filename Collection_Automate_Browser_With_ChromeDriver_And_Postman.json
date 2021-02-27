@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "4cd55c5a-9631-4bee-80ac-89808249434d",
+		"name": "Automate_ChromeDriver_And_Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e2395a0-9611-4998-bf4a-1b82977a1a1d",
+						"exec": [
+							"var response= JSON.parse(responseBody);\r",
+							"pm.environment.set(\"sessionID\",response.value.sessionId);\r",
+							"\r",
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"capabilities\": {\r\n        \"browserName\": \"chrome\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Open URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76c55ab6-6654-40d4-a9dd-7b755fc6ae0e",
+						"exec": [
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://opensource-demo.orangehrmlive.com/index.php/auth/login\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/{{sessionID}}/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"{{sessionID}}",
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get UserName Element ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b267c3cb-582c-4772-adfa-cfecc086e0b4",
+						"exec": [
+							"var response= JSON.parse(responseBody);\r",
+							"pm.environment.set(\"userNameElementID\",response.value[\"element-6066-11e4-a52e-4f735466cecf\"]);\r",
+							"\r",
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"using\": \"xpath\",\r\n    \"value\": \"//input[@name='txtUsername']\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/{{sessionID}}/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"{{sessionID}}",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sending UserName Value",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac9e5966-b039-4ac3-8613-ba43cec400b7",
+						"exec": [
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"Admin\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/{{sessionID}}/element/{{userNameElementID}}/value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"{{sessionID}}",
+						"element",
+						"{{userNameElementID}}",
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Password Element ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b267c3cb-582c-4772-adfa-cfecc086e0b4",
+						"exec": [
+							"var response= JSON.parse(responseBody);\r",
+							"pm.environment.set(\"passwordElementID\",response.value[\"element-6066-11e4-a52e-4f735466cecf\"]);\r",
+							"\r",
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"using\": \"xpath\",\r\n    \"value\": \"//input[@name='txtPassword']\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/{{sessionID}}/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"{{sessionID}}",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sending Password Value",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac9e5966-b039-4ac3-8613-ba43cec400b7",
+						"exec": [
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"admin123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/{{sessionID}}/element/{{passwordElementID}}/value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"{{sessionID}}",
+						"element",
+						"{{passwordElementID}}",
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Login Element ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b267c3cb-582c-4772-adfa-cfecc086e0b4",
+						"exec": [
+							"var response= JSON.parse(responseBody);\r",
+							"pm.environment.set(\"loginElementID\",response.value[\"element-6066-11e4-a52e-4f735466cecf\"]);\r",
+							"\r",
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"using\": \"xpath\",\r\n    \"value\": \"//input[@type='submit']\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/{{sessionID}}/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"{{sessionID}}",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Click Login Button",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b267c3cb-582c-4772-adfa-cfecc086e0b4",
+						"exec": [
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/{{sessionID}}/element/{{loginElementID}}/click",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"{{sessionID}}",
+						"element",
+						"{{loginElementID}}",
+						"click"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b267c3cb-582c-4772-adfa-cfecc086e0b4",
+						"exec": [
+							"pm.test(\"Verify status code as 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/{{sessionID}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"{{sessionID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
