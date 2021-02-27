@@ -1,4 +1,4 @@
-# In this repo, you will learn how to open browser, send message, click the button and so on.., using by postman (via calling Rest APIs of Selenium).
+# In this repository, I have covered, how to open browser, send message, click the button and so on.., using by postman (via calling Rest APIs of Selenium).
 
 ## How to use this:-
 ### 1: You will get the collection and chrome driver in this repo
@@ -7,6 +7,6 @@
 ### 4: Run the collection
 ### **********************************************************************************************************
 
-## Please go through below video for detailed information:- [Click here for Subscribe the Channel](https://www.youtube.com/channel/UCLTE4_DaxM3w2pqjIrnkO8A?sub_confirmation=1)
+## Please go through below video for detailed information:- [Click here for Subscribe the YouTube Channel](https://www.youtube.com/channel/UCLTE4_DaxM3w2pqjIrnkO8A?sub_confirmation=1)
 [![How to automate browser via ChromeDriver and Postman](https://i.ytimg.com/vi/nihaRaacNoE/maxresdefault.jpg)](
 https://www.youtube.com/watch?v=nihaRaacNoE "AutomateWithChromeDriverAndPostman")
