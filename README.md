@@ -1,4 +1,4 @@
-# In this repository, I have covered, how to open browser, send message, click the button and so on.., using by postman (via calling Rest APIs of Selenium).
+# In this repository, I have covered, how to open browser, type message(SendKeys), click the button and so on.., using by postman (via calling Rest APIs of Selenium).
 
 ## How to use this:-
 ### 1: You will get the collection and chrome driver in this repo
